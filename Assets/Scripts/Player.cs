@@ -70,6 +70,11 @@ public class Player : MonoBehaviour
             
             GameObject.FindWithTag("PlayUI").GetComponent<PlayUI>().DiaUpdate(_diaNum);
         }
+        
+        if (other.gameObject.CompareTag("EnemyHead"))
+        {
+            other.gameObject.GetComponentInParent<Enemy>().hp -= 5;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
