@@ -84,5 +84,11 @@ public class Player : MonoBehaviour
             _jumpCount = 0;
             _isJump = false;
         }
+
+        if (other.gameObject.CompareTag("Key"))
+        {
+            Destroy(other.gameObject);
+            Debug.Log("Key!");
+        }
     }
 }

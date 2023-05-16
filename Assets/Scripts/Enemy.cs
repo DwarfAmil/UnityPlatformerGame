@@ -5,6 +5,8 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private float _speed = 4;
 
+    [SerializeField] private GameObject _key;
+
     [FormerlySerializedAs("_hp")] public int hp = 10;
 
     // Update is called once per frame
@@ -14,6 +16,7 @@ public class Enemy : MonoBehaviour
 
         if (hp <= 0)
         {
+            Instantiate(_key, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

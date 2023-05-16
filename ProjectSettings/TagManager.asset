@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - ClearWall
   - EnemyHead
+  - Key
   layers:
   - Default
   - TransparentFX
