@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -7,9 +6,9 @@ public class Player : MonoBehaviour
     [SerializeField] private float _power = 3;
     [SerializeField] private int _diaNum;
 
-    private bool _isJump, _isDoubleJump;
+    private bool _isJump, _isDoubleJump, _isKey;
 
-    private int _jumpCount;
+    private int _jumpCount, _soul;
 
     private Rigidbody2D _rigidbody2D;
     
@@ -18,6 +17,7 @@ public class Player : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _isJump = false;
         _isDoubleJump = false;
+        _isKey = false;
     }
 
     // Update is called once per frame
@@ -88,7 +88,24 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("Key"))
         {
             Destroy(other.gameObject);
+            _isKey = true;
             Debug.Log("Key!");
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("GoldenChest") && _isKey)
+        {
+            _isKey = false;
+            other.gameObject.GetComponent<Chest>().OpenChest();
+        }
+
+        if (other.gameObject.CompareTag("Soul"))
+        {
+            _soul++;
+            GameObject.FindWithTag("PlayUI").GetComponent<PlayUI>().SoulUpdate(_soul);
+            Destroy(other.gameObject);
         }
     }
 }
