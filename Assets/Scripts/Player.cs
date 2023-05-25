@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -90,6 +91,18 @@ public class Player : MonoBehaviour
             Destroy(other.gameObject);
             _isKey = true;
             Debug.Log("Key!");
+        }
+
+        if (other.gameObject.CompareTag("SoulMaster"))
+        {
+            if (_soul == 1)
+            {
+                SceneManager.LoadScene("Stage02");
+            }
+            else
+            {
+                GameObject.FindWithTag("PlayUI").GetComponent<PlayUI>().TextPanel();
+            }
         }
     }
 

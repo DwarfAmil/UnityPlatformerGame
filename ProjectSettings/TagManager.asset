@@ -12,6 +12,7 @@ TagManager:
   - Key
   - GoldenChest
   - Soul
+  - SoulMaster
   layers:
   - Default
   - TransparentFX
