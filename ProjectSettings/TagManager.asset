@@ -13,6 +13,7 @@ TagManager:
   - GoldenChest
   - Soul
   - SoulMaster
+  - Guide
   layers:
   - Default
   - TransparentFX

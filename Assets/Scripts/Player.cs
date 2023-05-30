@@ -97,12 +97,17 @@ public class Player : MonoBehaviour
         {
             if (_soul == 1)
             {
-                SceneManager.LoadScene("Stage02");
+                GameObject.FindWithTag("PlayUI").GetComponent<PlayUI>().TextPanel("소울을 다 모아왔구나. \n좋다! 다음 스테이지로 보내주마!", true);
             }
             else
             {
-                GameObject.FindWithTag("PlayUI").GetComponent<PlayUI>().TextPanel();
+                GameObject.FindWithTag("PlayUI").GetComponent<PlayUI>().TextPanel("영혼이 부족해.. 영혼을 더 가져와..", false);
             }
+        }
+
+        if (other.gameObject.CompareTag("Guide"))
+        {
+            GameObject.FindWithTag("PlayUI").GetComponent<PlayUI>().TextPanel("이 뒤로는 더 이상 길이 없어!\n조언을 하나 해주자면 등잔 및이 어둡다는 말을 잘 생각해봐!");
         }
     }
 
