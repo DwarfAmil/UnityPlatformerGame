@@ -13,13 +13,18 @@ public class PlayUI : MonoBehaviour
 
     [SerializeField] private Text _text;
 
-    [SerializeField] private GameObject _clearBtn, _unClearBtn;
+    [SerializeField] private GameObject _clearBtn, _unClearBtn, _btn;
+
+    [SerializeField] private GameObject _soulMasterImg, _guideImg;
 
     private void Start()
     {
         _clearBtn.SetActive(false);
         _unClearBtn.SetActive(false);
         _textPanel.SetActive(false);
+        _btn.SetActive(false);
+        _soulMasterImg.SetActive(false);
+        _guideImg.SetActive(false);
         _diaText.text = "X " + 0;
         _soulText.text = "X " + 0;
     }
@@ -40,13 +45,19 @@ public class PlayUI : MonoBehaviour
         {
             _clearBtn.SetActive(false);
             _unClearBtn.SetActive(false);
+            _btn.SetActive(false);
             _clearBtn.SetActive(true);
+            _soulMasterImg.SetActive(true);
+            _guideImg.SetActive(false);
         }
         else
         {
             _clearBtn.SetActive(false);
             _unClearBtn.SetActive(false);
+            _btn.SetActive(false);
             _unClearBtn.SetActive(true);
+            _soulMasterImg.SetActive(true);
+            _guideImg.SetActive(false);
         }
         _text.text = s;
         _textPanel.SetActive(true);
@@ -67,5 +78,10 @@ public class PlayUI : MonoBehaviour
     {
         _text.text = s;
         _textPanel.SetActive(true);
+        _clearBtn.SetActive(false);
+        _unClearBtn.SetActive(false);
+        _btn.SetActive(true);
+        _soulMasterImg.SetActive(false);
+        _guideImg.SetActive(true);
     }
 }
